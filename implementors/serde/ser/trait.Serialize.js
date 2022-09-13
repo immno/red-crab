@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["red_crab"] = [{"text":"impl <a class=\"trait\" href=\"https://docs.rs/serde/1.0.144/serde/ser/trait.Serialize.html\" title=\"trait serde::ser::Serialize\">Serialize</a> for <a class=\"struct\" href=\"red_crab/prelude/errors/struct.MissingImplementationContent.html\" title=\"struct red_crab::prelude::errors::MissingImplementationContent\">MissingImplementationContent</a>","synthetic":false,"types":["red_crab::prelude::errors::MissingImplementationContent"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

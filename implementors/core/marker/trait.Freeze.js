@@ -1,0 +1,3 @@
+(function() {var implementors = {};
+implementors["red_crab"] = [{"text":"impl Freeze for <a class=\"struct\" href=\"red_crab/prelude/errors/struct.MissingImplementationContent.html\" title=\"struct red_crab::prelude::errors::MissingImplementationContent\">MissingImplementationContent</a>","synthetic":true,"types":["red_crab::prelude::errors::MissingImplementationContent"]},{"text":"impl Freeze for <a class=\"enum\" href=\"red_crab/prelude/errors/enum.RedCrabError.html\" title=\"enum red_crab::prelude::errors::RedCrabError\">RedCrabError</a>","synthetic":true,"types":["red_crab::prelude::errors::RedCrabError"]}];
+if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()
