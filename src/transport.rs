@@ -1,5 +1,5 @@
 use reqwest::{header, Response, StatusCode, Url};
-use serde::{de::DeserializeOwned, Deserialize, Serialize};
+use serde::{de::DeserializeOwned, Serialize};
 
 use crate::errors::{RedCrabError, Result};
 

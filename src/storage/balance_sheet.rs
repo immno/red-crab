@@ -4,8 +4,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::errors::Result;
 
-use super::akshare_storage::Akshare;
-use super::model::date_request::DateReq;
+use super::{akshare_storage::Akshare, model::date_request::DateReq};
 
 #[derive(Clone, Serialize, Deserialize, Debug)]
 pub struct Data {
@@ -38,26 +37,28 @@ pub struct Data {
 }
 
 impl Akshare {
-    pub async fn get_balance_sheet(&self, q: &DateReq, symbol: String) -> Result<Data> {
-        let data: Result<Vec<Data>> = self.transport.get("stock_zcfz_em", Some(q)).await;
-
-        todo!()
+    pub async fn get_balance_sheet(&self, q: &DateReq) -> Result<HashMap<String, Data>> {
+        let data: Vec<Data> = self.transport.get("stock_zcfz_em", Some(q)).await?;
+        let map = data
+            .iter()
+            .map(|x| (x.symbol.to_owned(), x.to_owned()))
+            .collect::<HashMap<String, Data>>();
+        Ok(map)
     }
 }
 
-// #[cfg(test)]
-// mod tests {
-//     use super::*;
+#[cfg(test)]
+mod tests {
+    use super::*;
 
-//     #[tokio::test]
-//     async fn it_works() {
-//         let akshare = Akshare::new();
-//         if let Ok(client) = akshare {
-//             let s = client.get_balance_sheet().await;
-//             match s {
-//                 Ok(res) => println!("{:?}", res),
-//                 Err(e) => println!("error: {}", e),
-//             }
-//         }
-//     }
-// }
+    #[tokio::test]
+    async fn it_works() {
+        let akshare = Akshare::new();
+        if let Ok(client) = akshare {
+            let s = client.get_balance_sheet(&"20220331".into()).await.unwrap();
+            // if let Ok(map) = s {
+            print!("{:?}", s.get("000651"));
+            // }
+        }
+    }
+}
