@@ -7,7 +7,7 @@ use crate::errors::Result;
 use super::{akshare_storage::Akshare, model::date_request::DateReq};
 
 #[derive(Clone, Serialize, Deserialize, Debug)]
-pub struct Data {
+pub struct BalanceSheetData {
     #[serde(rename = "股票代码")]
     pub symbol: String,
     #[serde(rename = "股票简称")]
@@ -37,12 +37,12 @@ pub struct Data {
 }
 
 impl Akshare {
-    pub async fn get_balance_sheet(&self, q: &DateReq) -> Result<HashMap<String, Data>> {
-        let data: Vec<Data> = self.transport.get("stock_zcfz_em", Some(q)).await?;
+    pub async fn get_balance_sheet(&self, q: &DateReq) -> Result<HashMap<String, BalanceSheetData>> {
+        let data: Vec<BalanceSheetData> = self.transport.get("stock_zcfz_em", Some(q)).await?;
         let map = data
             .iter()
             .map(|x| (x.symbol.to_owned(), x.to_owned()))
-            .collect::<HashMap<String, Data>>();
+            .collect::<HashMap<String, BalanceSheetData>>();
         Ok(map)
     }
 }
