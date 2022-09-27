@@ -1,8 +1,8 @@
-pub mod balance_sheet;
 pub mod akshare_storage;
-pub mod model;
-pub mod income_statement;
+pub mod balance_sheet;
 pub mod cash_flow_statement;
+pub mod income_statement;
+pub mod model;
 
 use std::fmt;
 

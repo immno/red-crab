@@ -86,7 +86,7 @@ pub enum RedCrabError {
 
     #[error("{0}")]
     MissingParameter(String),
-    
+
     #[error("{0}")]
     InvalidParameter(String),
 }

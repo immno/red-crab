@@ -37,7 +37,10 @@ pub struct BalanceSheetData {
 }
 
 impl Akshare {
-    pub async fn get_balance_sheet(&self, q: &DateReq) -> Result<HashMap<String, BalanceSheetData>> {
+    pub async fn get_balance_sheet(
+        &self,
+        q: &DateReq,
+    ) -> Result<HashMap<String, BalanceSheetData>> {
         let data: Vec<BalanceSheetData> = self.transport.get("stock_zcfz_em", Some(q)).await?;
         let map = data
             .iter()
