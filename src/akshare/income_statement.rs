@@ -4,7 +4,7 @@ use serde::{Deserialize, Serialize};
 
 use crate::errors::Result;
 
-use super::{akshare_storage::Akshare, model::date_request::DateReq};
+use super::{model::date_request::DateReq, Akshare};
 
 #[derive(Clone, Serialize, Deserialize, Debug)]
 pub struct IncomeStatementData {

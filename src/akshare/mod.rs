@@ -1,6 +1,14 @@
-use crate::errors::Result;
-use crate::transport::Transport;
+pub mod balance_sheet;
+pub mod cash_flow_statement;
+pub mod income_statement;
+pub mod model;
+mod transport;
 
+use crate::errors::Result;
+
+use self::transport::Transport;
+
+#[derive(Clone)]
 pub struct Akshare {
     pub transport: Transport,
 }
