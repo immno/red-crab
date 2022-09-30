@@ -58,9 +58,9 @@ mod tests {
     async fn it_works() {
         let akshare = Akshare::new();
         if let Ok(client) = akshare {
-            let s = client.get_balance_sheet(&"20220331".into()).await.unwrap();
+            let s = client.get_balance_sheet(&"20211231".into()).await.unwrap();
             // if let Ok(map) = s {
-            print!("{:?}", s.get("000651"));
+            print!("{:?}", s.get("002027"));
             // }
         }
     }

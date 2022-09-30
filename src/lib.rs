@@ -6,7 +6,7 @@ pub mod errors;
 pub mod indicator;
 
 #[async_trait]
-pub trait ValueFactor: Sized {
+pub trait ValueFactorService: Sized {
     type InitParams;
     type InnerClient;
     async fn new(param: Self::InitParams) -> Result<Self>;
