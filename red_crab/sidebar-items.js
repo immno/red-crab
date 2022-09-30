@@ -1,1 +1,1 @@
-window.SIDEBAR_ITEMS = {"mod":[["prelude",""]]};
+window.SIDEBAR_ITEMS = {"mod":[["akshare",""],["errors",""],["indicator",""]],"trait":[["ValueFactorService",""]]};
