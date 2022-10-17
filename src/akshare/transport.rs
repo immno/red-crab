@@ -11,11 +11,10 @@ pub struct Transport {
 
 impl Transport {
     pub fn new() -> Result<Self> {
-        let url = String::from("http://127.0.0.1:8080/api/public/");
-        Self::from(url)
+        Self::from("http://127.0.0.1:8080/api/public/")
     }
 
-    pub fn from(url: String) -> Result<Self> {
+    pub fn from(url: &str) -> Result<Self> {
         let default_headers = Self::default_headers();
         let client = reqwest::Client::builder()
             .default_headers(default_headers)
@@ -23,7 +22,7 @@ impl Transport {
 
         Ok(Transport {
             client,
-            base_url: url,
+            base_url: url.to_owned(),
         })
     }
 
@@ -111,9 +110,9 @@ mod tests {
     async fn it_works() {
         let t = Transport::new();
         if let Ok(tran) = t {
-            let params = json! {{"date": "20220331"}};
+            let params = json! {{"symbol": "SH600519"}};
 
-            let url = tran.get_url("stock_zcfz_em", Some(&params)).unwrap();
+            let url = tran.get_url("stock_cash_flow_sheet_by_yearly_em", Some(&params)).unwrap();
             println!("{}", url.as_str());
             let request: String = tran
                 .client
@@ -127,4 +126,6 @@ mod tests {
             println!("{:?}", request);
         }
     }
+
+    
 }

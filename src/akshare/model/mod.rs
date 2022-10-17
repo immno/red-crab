@@ -17,3 +17,17 @@ impl fmt::Display for Quarter {
         write!(f, "{:?}", self)
     }
 }
+
+// impl From<&str> for Quarter {
+//     fn from(s: &str) -> Self {
+//         if s.contains("0331") {
+//             Q1
+//         } else if s.contains("0630") {
+//             Q2
+//         } else if s.contains("0930") {
+//             Q3
+//         } else if s.contains("1231") {
+//             Q4
+//         }
+//     }
+// }
